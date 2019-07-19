@@ -12,7 +12,7 @@ class BorderlessWindow(Gtk.Window):
 
 		self.entry = Gtk.Entry()
 		self.entry.set_text("Please enter URL")
-		gtk_signal_connect (self.entry, "activate", parseUrl)
+		self.entry.connect("activate", self.parseUrl)
 		urlBox.pack_start(self.entry, True, True, 0)
 
 		self.add(urlBox)
@@ -20,11 +20,14 @@ class BorderlessWindow(Gtk.Window):
 		urlBox.pack_start(urlButton, True, True, 0)
 
 
-	def parseUrl(self, button, str):
-		print(str)
+	def parseUrl(self, entry):
+		url = entry.get_text()
+		print(url)
 
 win = BorderlessWindow()
 win.connect("destroy", Gtk.main_quit)
 win.show_all()
-
+win2 = BorderlessWindow()
+win2.connect("destroy", Gtk.main_quit)
+win2.show_all()
 Gtk.main()
