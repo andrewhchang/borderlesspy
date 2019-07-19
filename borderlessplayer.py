@@ -1,12 +1,27 @@
-import sys
-from gi.repository import Gtk
+import gi
+gi.require_version('Gtk', '3.0')
+from gi.repository import Gtk, GLib
 
-def __init__(self):
-	Gtk.Window.__init__(title="Borderless Player")
-	self.urlEntry = Gtk.Entry(max=0)
-	urlEntry.show()
+class BorderlessWindow(Gtk.Window):
+	
+	def __init__(self):
+		Gtk.Window.__init__(self, title="Borderless Player")
+		self.set_size_request(300,50)
 
-win = Gtk.Window()
+		urlBox = Gtk.Box(spacing = 0)
+
+		self.entry = Gtk.Entry()
+		self.entry.set_text("Please enter URL")
+		urlBox.pack_start(self.entry, True, True, 0)
+
+		self.add(urlBox)
+		urlButton = Gtk.Button.new_with_label("Go")
+		urlBox.pack_start(urlButton, True, True, 0)
+
+	def parseUrl(self, button, str):
+		print(str)
+
+win = BorderlessWindow()
 win.connect("destroy", Gtk.main_quit)
 win.show_all()
 
