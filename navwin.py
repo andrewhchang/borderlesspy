@@ -4,20 +4,11 @@ class NavWindow(Gtk.Window):
 		Gtk.Window.__init__(self, title="Python-Vlc Media Player")
 
 		self.playback_button = Gtk.Button()
-        self.stop_button = Gtk.Button()
-        self.play_image = Gtk.Image.new_from_icon_name(
-                "gtk-media-play",
-                Gtk.IconSize.MENU
-            )
-        self.pause_image = Gtk.Image.new_from_icon_name(
-                "gtk-media-pause",
-                Gtk.IconSize.MENU
-            )
-        self.stop_image = Gtk.Image.new_from_icon_name(
-                "gtk-media-stop",
-                Gtk.IconSize.MENU
-            )
-
+		self.stop_button = Gtk.Button()
+		self.play_image = Gtk.Image.new_from_icon_name("gtk-media-play",Gtk.IconSize.MENU)
+        self.pause_image = Gtk.Image.new_from_icon_name("gtk-media-pause",Gtk.IconSize.MENU)
+        self.stop_image = Gtk.Image.new_from_icon_name("gtk-media-stop",Gtk.IconSize.MENU)
+        
         def toggle_player_playback(self, widget, data=None):
 	        if self.is_player_active == False and self.player_paused == False:
 	            self.player.play()

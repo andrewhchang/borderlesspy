@@ -40,7 +40,7 @@ class UrlWindow(Gtk.Window):
 		#myPlayer = BorderlessPlayer()
 		player = BorderlessPlayer().media_player_new(bestVidUrl)
 		#self.destroy()
-		self.hide()
 		player.video_set_key_input(True)                                                                                             
 		GLib.idle_add(player.play())
+		print(player.get_role())
 		while True:pass
