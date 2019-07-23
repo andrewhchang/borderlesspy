@@ -21,8 +21,12 @@ class UrlWindow(Gtk.Window):
 
 		self.add(urlBox)
 		urlButton = Gtk.Button.new_with_label("Go")
+		#urlButton.connect("clicked",onGoClicked)
 		urlBox.pack_start(urlButton, True, True, 0)
-
+	"""
+	def onGoClicked(self, Button):
+		VIDURL = 
+	"""
 
 	def parseUrl(self, entry):
 		xlib = ctypes.cdll.LoadLibrary("libX11.so")
